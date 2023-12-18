@@ -26,7 +26,7 @@
   <img alt="Components.png" height="400" src="Resources/Components.png" width="400"/>
 
 ## Kubernetes Architecture:
-  - **About node:**
+  - **About worker node:**
     - Each Nodes has multiple Pods on it
     - 3 Process must be installed on every node
       - Container runtime (like docker or container d)
@@ -34,3 +34,15 @@
       - KubeProxy (Communication with services and forwards the requests)
     - Worker nodes do the actual work
   - **About Master Node:**
+    - 4 Process must be installed on every node
+      - Api Server (is a cluster gateway that client can communicate with kubernetes)
+        - like panel or CLI
+        - get request then validate then send that for process
+      - Scheduler (schedule new pod or schedule terminate pod)
+        - Scheduler just decides on which Node new Pod should be scheduled
+        - Scheduler Know How much resource used and need, base on it decided new pod must schedule on which Node
+      - Controller manager
+        - detects cluster state changes (pod die, or need to re-schedule)
+        - if detect one of state that must be have reaction send request to scheduler to schedule that
+      - etcd (is the cluster brain, cluster changes get stored in the key-value store)
+        - note: application data is not stored in etcd.
