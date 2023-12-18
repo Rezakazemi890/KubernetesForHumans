@@ -23,7 +23,7 @@
   - **Deployment** (One or more node(s) that have only one duty to do something) - for Stateless apps
   - **StatefulSet** (One or more node(s) that have only one duty to do something) - for Stateful apps
 
-  <img alt="Components.png" height="400" src="Components.png" width="400"/>
+  <img alt="Components.png" height="400" src="Resources/Components.png" width="400"/>
 
 ## Kubernetes Architecture:
   - **About node:**
