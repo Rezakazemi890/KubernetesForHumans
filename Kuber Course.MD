@@ -16,10 +16,10 @@ Kuber Course:
 	- Ingress (Service Discovery of each service of node)
 	- ConfigMap (External configuration of application)
 	- Secret (Used to store secret data like credentials - base64 encoded)
-	- Volumes (Data store component of kuber that can stores on local machin or remote storage)
+	- Volumes (Data store component of kuber that can stores on local machine or remote storage)
 	- Node (Node can have one or more (Pod+Service)) like: 
 		- node1: 
 			app (Pod+Service) + db (Pod+Service) + Ingress + ConfigMap + Secret + Volumes
 	- Deployment (One or more node(s) that have only one duty to do something) - for Stateless apps
 	- StatefulSet (One or more node(s) that have only one duty to do something) - for Stateful apps
-    - ![img.png](img.png)
+    - <img alt="Components.png" height="400" src="Components.png" width="400"/>
