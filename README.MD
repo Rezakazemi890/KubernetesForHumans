@@ -46,3 +46,27 @@
         - if detect one of state that must be have reaction send request to scheduler to schedule that
       - etcd (is the cluster brain, cluster changes get stored in the key-value store)
         - note: application data is not stored in etcd.
+## Minikube and Kubectl:
+  - **Minikube**
+    - Use for test purposes.
+    - Master and node processes run on one machine.
+    - Have a preinstalled docker runtime as a container runtime.
+    - Creates Virtual box on your machine, and nodes run on virtual box.
+    - One Node k8s cluster
+  - **Kubectl**
+    - Enable interaction with cluster (CLI)
+    - Uses for any type cluster (Minikube cluster and Cloud cluster)
+## Main Kubectl Commands:
+  - **CRUD Commands**
+    - kubectl create deployment [name]
+    - kubectl edit deployment [name]
+    - kubectl delete deployment [name]
+  - **Status of component**
+    - kubectl get nodes
+    - kubectl get pod
+    - kubectl get services
+    - kubectl get replicaset
+    - kubectl get deployment
+  - **Debug**
+    - kubectl logs [pod name]
+    - kubectl exec -it [pod name] --bin/bash
