@@ -46,6 +46,7 @@
         - if detect one of state that must be have reaction send request to scheduler to schedule that
       - etcd (is the cluster brain, cluster changes get stored in the key-value store)
         - note: application data is not stored in etcd.
+
 ## Minikube and Kubectl:
   - **Minikube**
     - Use for test purposes.
@@ -56,11 +57,13 @@
   - **Kubectl**
     - Enable interaction with cluster (CLI)
     - Uses for any type cluster (Minikube cluster and Cloud cluster)
+
 ## Main Kubectl Commands:
   - **CRUD Commands**
-    - kubectl create deployment [name]
-    - kubectl edit deployment [name]
-    - kubectl delete deployment [name]
+    - kubectl create deployment [name] --image=[image name]
+    - kubectl edit deployment [name] --image=[image name]
+    - kubectl delete deployment [name] --image=[image name]
+    - kubectl apply -f [DeploymentConfig.yaml]
   - **Status of component**
     - kubectl get nodes
     - kubectl get pod
@@ -69,4 +72,29 @@
     - kubectl get deployment
   - **Debug**
     - kubectl logs [pod name]
-    - kubectl exec -it [pod name] --bin/bash
+    - kubectl exec -it [pod name] -- bin/bash
+
+## YAML Configuration file:
+  - **Sample**
+```yaml 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
