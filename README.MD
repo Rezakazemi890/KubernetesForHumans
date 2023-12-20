@@ -24,6 +24,7 @@
   - **StatefulSet** (One or more node(s) that have only one duty to do something) - for Stateful apps
 
   <img alt="Components.png" height="400" src="Resources/Components.png" width="400"/>
+  <img alt="Layers.png" height="400" src="Resources/Layers.png" width="400"/>
 
 ## Kubernetes Architecture:
   - **About worker node:**
