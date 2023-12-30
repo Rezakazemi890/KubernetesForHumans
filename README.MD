@@ -76,7 +76,9 @@
     - kubectl exec -it [pod name] -- bin/bash
 
 ## YAML Configuration file:
-  - **Sample**
+  - **Sample:**
+    - Deployment & Service
+
 ```yaml 
 apiVersion: apps/v1
 kind: Deployment
@@ -96,8 +98,21 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.14.2
+        image: nginx:1.16
         ports:
-        - containerPort: 80
+        - containerPort: 8080
+```
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
 ```
 ## Demo Project
