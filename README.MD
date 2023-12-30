@@ -115,4 +115,17 @@ spec:
       port: 80
       targetPort: 8080
 ```
-## Demo Project
+## Sample Project
+  - **Steps:**
+    - Create [mongo deployment file](MongoDbSample/mongo.yaml)
+    - Create [mongo secret file](MongoDbSample/mongo-secret.yaml)
+    - Execute Command: `kubectl apply -f mongo-secret.yaml` in MongoDbSample directory
+    - Add Secret reference to [mongo deployment file](MongoDbSample/mongo.yaml)
+    - Execute Command: `kubectl apply -f mongo.yaml`
+    - Add Service configuration in [mongo deployment file](MongoDbSample/mongo.yaml) after `---`
+    - Create [mongo-express deployment file](MongoDbSample/mongo-express.yaml)
+    - Create [mongo configmap file](MongoDbSample/mongo-configmap.yaml)
+    - Execute Command: `kubectl apply -f mongo-configmap.yaml` in MongoDbSample directory
+    - Add Service configuration in [mongo-express deployment file](MongoDbSample/mongo-express.yaml) after `---`
+    - Execute Command: `kubectl apply -f mongo-express.yaml` in MongoDbSample directory
+    - you can see status with command: `kubectl get all | grep mongo`

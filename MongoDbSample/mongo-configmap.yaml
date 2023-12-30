@@ -1,0 +1,6 @@
+﻿apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-configmap
+data:
+  database_url: mongodb-service
