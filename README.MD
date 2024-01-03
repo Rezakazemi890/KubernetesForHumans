@@ -129,3 +129,18 @@ spec:
     - Add Service configuration in [mongo-express deployment file](MongoDbSample/mongo-express.yaml) after `---`
     - Execute Command: `kubectl apply -f mongo-express.yaml` in MongoDbSample directory
     - you can see status with command: `kubectl get all | grep mongo`
+    - For delete deployment execute command: `kubectl delete deployment [deployment name]`
+    - For delete service execute command: `kubectl delete services [service name]`
+
+## Namespace
+  - **Default namespaces**
+  - Execute command: `kubectl get namespace`
+    - default (if you don't create namespace your resource located here)
+    - kube-public (contains public data like configmap, cluster information, ...)
+    - kube-system (Don't create or modify this)
+    - kube-node-lease (heartbeats of nodes, each node has lease object)
+    - kubernetes-dashboard
+  - you can create namespace with command: `kubectl create namespace my-namespace`
+  - you can set name space of component by two approach:
+    - use `--namespace=my-namespace` for example: `kubectl apply -f mongo-configmap.yaml --namespace=my-namespace`
+    - use `namespace: my-namespace` in yaml file under `metadata:`
