@@ -1,0 +1,19 @@
+﻿apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: mylocalmongo-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - mylocalmongo.com
+    secretName:  mylocalmongo-secret-tls
+  rules:
+  - host: mylocalmongo.com
+    http:
+      paths:
+        - path: /express
+        - backend:
+            serviceName: mongo-express-service
+            servicePort: 8080

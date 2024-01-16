@@ -144,3 +144,10 @@ spec:
   - you can set name space of component by two approach:
     - use `--namespace=my-namespace` for example: `kubectl apply -f mongo-configmap.yaml --namespace=my-namespace`
     - use `namespace: my-namespace` in yaml file under `metadata:`
+
+## Ingress
+  - When we don't want to access to the internal service ip address and we want to use domain name and secure protocol use ingress component. for example: use `https://my-app.com` instead `http://124.8.2.1:35000`
+  - Create [Mongo Ingress.yaml](MongoDbSample/Ingress.yaml)
+  - Execute Command: `kubectl apply -f Ingress.yaml` in MongoDbSample directory
+  - You can see the ingress list with `kubectl get ingress`
+  - You can configure https and tls like [Ingress-tls.yaml](MongoDbSample/Ingress-tls.yaml) and use this [mylocalmongo-secret-tls.yaml](MongoDbSample/mylocalmongo-secret-tls.yaml)
