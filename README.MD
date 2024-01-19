@@ -115,6 +115,9 @@ spec:
       port: 80
       targetPort: 8080
 ```
+### Service types
+![ServiceType.png](Resources/ServiceType.png)
+
 ## Sample Project
   - **Steps:**
     - Create [mongo deployment file](MongoDbSample/mongo.yaml)
