@@ -175,3 +175,12 @@ spec:
   - Helm version 2 have two parts:
     - Client(Helm CLI)
     - Server(Tiller) But `Tiller` got removed in version 3 because has security issues.
+
+## Persistent Volume
+  - You can use all type of storage for store your persistent volumes like: local, cloud, nfs, ...
+  - For have local volume:
+    - create [persistentVolume.yaml](MongoDbSample/persistentVolume.yaml)
+    - add `volumeMounts` and `volumes` config to deployment or pod yaml file like: [mongo.yaml](MongoDbSample/mongo.yaml)
+  - Storage class can create persistent volumes dynamically.
+    - created like this file: [storageClass.yaml](MongoDbSample/storageClass.yaml)
+    - and reference that in `storageClassName` in [persistentVolume.yaml](MongoDbSample/persistentVolume.yaml)
