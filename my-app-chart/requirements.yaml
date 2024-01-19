@@ -1,0 +1,4 @@
+dependencies:
+  - name: mysql
+    version: 5.7.3
+    repository: https://artifacthub.io/packages/helm/wso2/mysql

@@ -151,3 +151,27 @@ spec:
   - Execute Command: `kubectl apply -f Ingress.yaml` in MongoDbSample directory
   - You can see the ingress list with `kubectl get ingress`
   - You can configure https and tls like [Ingress-tls.yaml](MongoDbSample/Ingress-tls.yaml) and use this [mylocalmongo-secret-tls.yaml](MongoDbSample/mylocalmongo-secret-tls.yaml)
+
+## Helm Package
+  - Helm is a package manager for kubernetes
+  - Helm can help to package yaml files.
+  - Helm Chart:
+    - bundle of yaml files
+    - Create your Own Helm Chart
+    - Push them to Helm Repository
+    - Download and use exist one (reusable)
+  - Used for complex setups (Like monitoring app that have ELK, Grafana, Prometheus, ...)
+  - You can share Helm Charts Configurations. Or use other configuration in [Helm hub](https://artifacthub.io/) or use command `helm search <Keyword>`
+  - Helm has Template Engine for Same deployments.
+    - for Example: Create [my-app-template.yaml](my-app-chart/Templates/my-app-template.yaml) and use `{{.Values..}}` template for read values from [values.yaml](my-app-chart/values.yaml)
+  - Another feature of Helm is you can deploy same Applications to different environment.
+  - Directory structure must like [my-app-chart](my-app-chart) directory.
+    - [chart.yaml](my-app-chart/chart.yaml) --> meta info about chart.
+    - [values.yaml](my-app-chart/values.yaml) --> values for template files.
+    - [Charts folder](my-app-chart/Charts) --> chart dependencies. all yaml files that needed.
+    - [Templates](my-app-chart/Templates) --> actual template files.
+  - You can execute `helm install chart.yaml` to install all packages and dependencies.
+  - If you have dependency you can create [requirements.yaml](my-app-chart/requirements.yaml) and execute `helm dependency update` in this section dependency added to charts folder.
+  - Helm version 2 have two parts:
+    - Client(Helm CLI)
+    - Server(Tiller) But `Tiller` got removed in version 3 because has security issues.
