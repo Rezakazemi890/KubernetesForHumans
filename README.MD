@@ -63,7 +63,7 @@
 - **CRUD Commands**
     - kubectl create deployment [name] --image=[image name]
     - kubectl edit deployment [name] --image=[image name]
-    - kubectl delete deployment [name] --image=[image name]
+    - kubectl delete deployment [name]
     - kubectl apply -f [DeploymentConfig.yaml]
 - **Status of component**
     - kubectl get nodes
