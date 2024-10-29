@@ -79,6 +79,33 @@
 - **Sample:**
     - Deployment & Service
 
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nginx-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data/nginx"
+```
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nginx-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
+```
+
 ```yaml 
 apiVersion: apps/v1
 kind: Deployment
@@ -101,6 +128,13 @@ spec:
         image: nginx:1.16
         ports:
         - containerPort: 8080
+        volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: nginx-storage
+      volumes:
+      - name: nginx-storage
+        persistentVolumeClaim:
+          claimName: nginx-pvc
 ```
 ```yaml
 apiVersion: v1
