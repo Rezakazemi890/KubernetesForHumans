@@ -306,5 +306,3 @@ kubectl delete -f caller-service.yaml
 - Ensure your local Docker registry (`localhost:5000`) is configured for Kubernetes.
 - Each service uses YAML configuration files (`weather-service.yaml` and `caller-service.yaml`) to define deployments and services.
 - Modify `NodePort` values in the YAML files if ports are occupied.
-
-```
