@@ -228,7 +228,7 @@ and we want to use a domain name and secure protocol, use the Ingress component.
 
 ### Weather and Caller Service Setup
 
-This repository contains two applications, **WeatherService** and **CallerService**. Follow the instructions below to build, push, deploy, and test these services locally.
+This repository contains two applications, [WeatherService](https://github.com/Rezakazemi890/KubernetesForHumans/tree/master/RelatedAppsSample/WeatherService) and [CallerService](https://github.com/Rezakazemi890/KubernetesForHumans/tree/master/RelatedAppsSample/CallerService). Follow the instructions below to build, push, deploy, and test these services locally.
 
 ### Prerequisites
 - Docker installed and running
