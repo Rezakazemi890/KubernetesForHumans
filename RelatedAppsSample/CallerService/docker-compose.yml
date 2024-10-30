@@ -1,0 +1,6 @@
+﻿services:
+  callerservice:
+    image: callerservice
+    build:
+      context: .
+      dockerfile: CallerService/Dockerfile

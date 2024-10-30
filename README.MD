@@ -223,3 +223,88 @@ and we want to use a domain name and secure protocol, use the Ingress component.
 - Storage class can create persistent volumes dynamically.
     - created like this file: [storageClass.yaml](MongoDbSample/storageClass.yaml)
     - and reference that in `storageClassName` in [persistentVolume.yaml](MongoDbSample/persistentVolume.yaml)
+
+## Here's a sample for two related apps with kubernetes config and run guid
+
+### Weather and Caller Service Setup
+
+This repository contains two applications, **WeatherService** and **CallerService**. Follow the instructions below to build, push, deploy, and test these services locally.
+
+### Prerequisites
+- Docker installed and running
+- Kubernetes cluster setup with local registry (`localhost:5000`)
+
+```bash
+docker run -d -p 5000:5000 --restart=always --name registry hub.indraproject.ir/hubproxy/library/registry:2
+```
+
+- `kubectl` installed and configured
+
+### Steps
+
+##### 1. Build and Push Docker Images
+
+##### WeatherService
+
+```bash
+cd RelatedAppsSample/WeatherService 
+
+docker build -t localhost:5000/weather-service . 
+
+docker push localhost:5000/weather-service
+```
+
+---
+
+##### CallerService
+
+```bash
+cd ../RelatedAppsSample/CallerService
+
+docker build -t localhost:5000/caller-service .
+
+docker push localhost:5000/caller-service
+```
+
+---
+
+##### 2. Deploy Applications to Kubernetes
+
+##### WeatherService
+
+```bash
+cd ../RelatedAppsSample/WeatherService 
+
+kubectl apply -f weather-service.yaml
+```
+
+---
+
+##### CallerService
+
+```bash
+cd ../RelatedAppsSample/CallerService
+
+kubectl apply -f caller-service.yaml
+```
+
+---
+
+##### 3. Clean Up Resources
+
+To delete the services from Kubernetes, run the following commands:
+
+```bash
+kubectl delete -f weather-service.yaml
+
+kubectl delete -f caller-service.yaml
+```
+
+---
+
+##### Notes
+- Ensure your local Docker registry (`localhost:5000`) is configured for Kubernetes.
+- Each service uses YAML configuration files (`weather-service.yaml` and `caller-service.yaml`) to define deployments and services.
+- Modify `NodePort` values in the YAML files if ports are occupied.
+
+```
