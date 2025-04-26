@@ -235,7 +235,7 @@ This repository contains two applications, [WeatherService](https://github.com/R
 - Kubernetes cluster setup with local registry (`localhost:5000`)
 
 ```bash
-docker run -d -p 5000:5000 --restart=always --name registry hub.indraproject.ir/hubproxy/library/registry:2
+docker run -d -p 5000:5000 --restart=always --name registry registry:2
 ```
 
 - `kubectl` installed and configured
